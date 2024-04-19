@@ -91,3 +91,4 @@ const NavigationBar = ({ toggleSidebar }) => {
   );
 };
 export default NavigationBar;
+
