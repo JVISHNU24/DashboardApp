@@ -39,9 +39,6 @@ const NavigationBar = ({ toggleSidebar }) => {
             role="button"
           />
         </div>
-        <div className="mr-4">
-          <img className="w-10 h-10" src="tailadmin.png" alt="TailAdmin Logo" />
-        </div>
         <div className="mr-4 text-xl font-bold hidden md:block text-white">
           Admin Dashboard
         </div>
@@ -69,20 +66,20 @@ const NavigationBar = ({ toggleSidebar }) => {
             />
           </div>
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-gray-800 z-10">
+            <div className="absolute right-0 mt-2 w-48 bg-gray-800 z-10 rounded-lg shadow-lg">
               <Link
                 to="/settings"
                 className="block px-4 py-2 text-white hover:bg-gray-700"
               >
                 Settings
               </Link>
-              <button
+              <Link
+                to="/"
                 type="button"
                 className="block w-full px-4 py-2 text-left text-white hover:bg-gray-700"
-                onClick={handleLogout}
               >
                 Logout
-              </button>
+              </Link>
             </div>
           )}
         </div>
@@ -91,4 +88,3 @@ const NavigationBar = ({ toggleSidebar }) => {
   );
 };
 export default NavigationBar;
-

@@ -1,11 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React,{useEffect,useRef,useState} from "react";
 import Chart from "chart.js/auto";
-const LineGraph = () => {
+    const LineGraph=({isOpen})=>{
   const lineChartRef = useRef(null);
   const doughnutChartRef = useRef(null);
+  const [lineGraphWidth, setLineGraphWidth] = useState("w-full");
   useEffect(() => {
     let lineChart;
     let doughnutChart;
+    if (isOpen) {
+      setLineGraphWidth("w-4/5 ml-64");
+    } else {
+      setLineGraphWidth("w-full");
+    }
     if (lineChartRef && lineChartRef.current) {
       if (lineChart) {
         lineChart.destroy();
@@ -63,7 +69,7 @@ const LineGraph = () => {
           datasets: [
             {
               label: "Sold Categories",
-              data: [15, 25, 10, 30],
+              data: [150, 250, 100, 300],
               backgroundColor: ["red", "green", "blue", "yellow"],
             },
           ],
@@ -78,19 +84,26 @@ const LineGraph = () => {
         doughnutChart.destroy();
       }
     };
-  }, []);
+  }, [isOpen]);
   return (
-    <div className="flex justify-end mr-36 mt-20">
-      <div className="w-1/2 sm:w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
-        <div className="bg-white p-4 rounded-lg shadow-2xl h-full">
-          <h2 className="text-lg font-semibold mb-2">Line Graph</h2>
-          <canvas height={500} width={500} ref={lineChartRef} />
+    <div className={`flex sm:flex-col md:flex-row xxs:flex-col justify-end mt-6 sm:mt-8 ${lineGraphWidth}`}>
+      <div className="w-full md:w-1/2 lg:w-1/2 px-2 mb-4">
+        <div className="bg-white p-4 rounded-lg shadow-lg h-full">
+          <h2 className="text-lg font-semibold mb-2 text-gray-900">
+            Line Graph
+          </h2>
+          <canvas className="w-full h-64 md:h-80 lg:h-96" ref={lineChartRef} />
         </div>
       </div>
-      <div className="w-1/2 sm:w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
-        <div className="bg-white p-4 rounded-lg shadow-2xl h-full">
-          <h2 className="text-lg font-semibold mb-2">Doughnut Graph</h2>
-          <canvas ref={doughnutChartRef} />
+      <div className="w-full md:w-1/2 lg:w-1/2 px-2 mb-4">
+        <div className="bg-white p-4 rounded-lg shadow-lg h-full">
+          <h2 className="text-lg font-semibold mb-2 text-gray-900">
+            Doughnut Graph
+          </h2>
+          <canvas
+            className="w-full h-64 md:h-80 lg:h-96"
+            ref={doughnutChartRef}
+          />
         </div>
       </div>
     </div>

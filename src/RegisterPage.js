@@ -26,26 +26,26 @@ function RegisterPage() {
     });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full bg-white p-8 rounded-md shadow-lg">
+        <div className="text-center">
           <img
             src="tailadmin.png"
             className="mx-auto h-12 w-auto"
             alt="Tailadmin"
           />
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-100">
-            TailAdmin{" "}
+          <h2 className="mt-2 text-xl font-semibold text-gray-900">
+            TailAdmin
           </h2>
-          <h2 className="mt-2 text-center text-xl font-semibold text-gray-100">
+          <h2 className="mt-2 text-lg font-semibold text-gray-700">
             Create an Account
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleRegister}>
-          <div>
+          <div className="mt-6">
             <label
               htmlFor="username"
-              className="block text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-700"
             >
               Username
             </label>
@@ -54,16 +54,16 @@ function RegisterPage() {
               name="username"
               type="text"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800 text-white"
+              className="input-style"
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="mt-6">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-700"
             >
               Email address
             </label>
@@ -72,16 +72,16 @@ function RegisterPage() {
               name="email"
               type="email"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800 text-white"
+              className="input-style"
               placeholder="Email address"
               value={formData.email}
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="mt-6">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-700"
             >
               Password
             </label>
@@ -90,16 +90,16 @@ function RegisterPage() {
               name="password"
               type="password"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800 text-white"
+              className="input-style"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="mt-6">
             <label
               htmlFor="age"
-              className="block text-sm font-medium text-gray-300"
+              className="block text-sm font-medium text-gray-700"
             >
               Age
             </label>
@@ -108,24 +108,21 @@ function RegisterPage() {
               name="age"
               type="number"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800 text-white"
+              className="input-style"
               placeholder="Age"
               value={formData.age}
               onChange={handleChange}
             />
           </div>
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+          <div className="mt-6">
+            <button type="submit" className="btn-style">
               Register
             </button>
           </div>
-          <div className="text-center">
+          <div className="mt-6 text-center">
             <Link
               to="/"
-              className="mt-2 text-sm text-gray-600 hover:text-gray-300"
+              className="block text-sm text-gray-600 hover:text-gray-400"
             >
               Already have an account? Sign in
             </Link>

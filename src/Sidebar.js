@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaCalendar, FaUser, FaTasks, FaWpforms } from "react-icons/fa";
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen = true, toggleSidebar }) => {
   return (
     <nav
-      className={`fixed left-0 top-10 z-40 bg-gray-800 w-64 py-4 h-full transition duration-300 ease-in-out ${
+      className={`fixed top-10 z-40 bg-gray-800 w-64 py-4 h-full transition duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >

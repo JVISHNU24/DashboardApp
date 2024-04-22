@@ -9,7 +9,7 @@ import LineGraph from "./LineGraph";
 import ProductPage from "./ProductPage.js";
 function App() {
   const [isLogin, setLogin] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
   const handleSignIn = () => {
     setLogin(true);
   };
@@ -21,7 +21,9 @@ function App() {
       <div className="App">
         <div className="flex">
           {isLogin && <NavigationBar toggleSidebar={toggleSidebar} />}
-          {isLogin && <Sidebar isOpen={isSidebarOpen} />}
+          {isLogin && (
+            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+          )}
         </div>
         <Routes>
           {!isLogin && (
@@ -33,8 +35,14 @@ function App() {
           )}
           {isLogin && (
             <>
-              <Route path="/dashboard" element={<LineGraph />} />
-              <Route path="/products" element={<ProductPage />} />
+              <Route
+                path="/dashboard"
+                element={<LineGraph isOpen={isSidebarOpen} />}
+              />
+              <Route
+                path="/products"
+                element={<ProductPage isOpen={isSidebarOpen} />}
+              />
             </>
           )}
         </Routes>
