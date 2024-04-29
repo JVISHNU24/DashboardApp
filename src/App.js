@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 import LineGraph from "./LineGraph";
 import ProductPage from "./ProductPage.js";
 import ProductDetails from "./ProductDetails.js"; 
-import { Calendar } from "antd";
+
 import Profile from "./Profile.js";
 import Forms from "./Forms.js";
 import Calender from "./Calender.js";

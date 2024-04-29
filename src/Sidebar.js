@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen = true, toggleSidebar }) => {
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <h3 className="text-white text-lg mb-4 pl-16"></h3>
+
       <ul>
         <li className={`flex items-center pl-4 mb-4 ${isActive("/dashboard")}`}>
           <FaHome className="text-white mr-2 text-2xl " />
