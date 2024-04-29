@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.e413db33.css",
-    "main.js": "/static/js/main.929c314a.js",
-    "static/js/453.1c13788b.chunk.js": "/static/js/453.1c13788b.chunk.js",
-    "index.html": "/index.html",
-    "main.e413db33.css.map": "/static/css/main.e413db33.css.map",
-    "main.929c314a.js.map": "/static/js/main.929c314a.js.map",
-    "453.1c13788b.chunk.js.map": "/static/js/453.1c13788b.chunk.js.map"
+    "main.css": "/github.io/DashboardApp/static/css/main.e413db33.css",
+    "main.js": "/github.io/DashboardApp/static/js/main.048ab7d3.js",
+    "static/js/453.1c13788b.chunk.js": "/github.io/DashboardApp/static/js/453.1c13788b.chunk.js",
+    "index.html": "/github.io/DashboardApp/index.html",
+    "main.e413db33.css.map": "/github.io/DashboardApp/static/css/main.e413db33.css.map",
+    "main.048ab7d3.js.map": "/github.io/DashboardApp/static/js/main.048ab7d3.js.map",
+    "453.1c13788b.chunk.js.map": "/github.io/DashboardApp/static/js/453.1c13788b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e413db33.css",
-    "static/js/main.929c314a.js"
+    "static/js/main.048ab7d3.js"
   ]
 }
