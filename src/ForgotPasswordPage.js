@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi"; 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const handleSubmit = (e) => {
@@ -45,8 +46,11 @@ function ForgotPasswordPage() {
             </button>
           </div>
           <div className="mt-4 text-center text-sm text-gray-700">
-            <Link to="/" className="block hover:text-indigo-600">
-              Back to Login
+            <Link
+              to="/"
+              className="flex items-center justify-center hover:text-indigo-600"
+            >
+              <FiArrowLeft className="h-4 w-4 mr-1" /> Back to Login
             </Link>
           </div>
         </form>

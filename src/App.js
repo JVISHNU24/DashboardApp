@@ -7,9 +7,14 @@ import NavigationBar from "./NavigationBar";
 import Sidebar from "./Sidebar";
 import LineGraph from "./LineGraph";
 import ProductPage from "./ProductPage.js";
+import ProductDetails from "./ProductDetails.js"; 
+import { Calendar } from "antd";
+import Profile from "./Profile.js";
+import Forms from "./Forms.js";
+import Calender from "./Calender.js";
 function App() {
   const [isLogin, setLogin] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const handleSignIn = () => {
     setLogin(true);
   };
@@ -43,6 +48,19 @@ function App() {
                 path="/products"
                 element={<ProductPage isOpen={isSidebarOpen} />}
               />
+              <Route
+                path="/products/:productId"
+                element={<ProductDetails isOpen={isSidebarOpen} />}
+              />
+              <Route
+                path="/calendar"
+                element={<Calender isOpen={isSidebarOpen} />}
+              />
+              <Route
+                path="/profile"
+                element={<Profile isOpen={isSidebarOpen} />}
+              />
+              <Route path="/forms" element={<Forms isOpen={isSidebarOpen} />} />
             </>
           )}
         </Routes>

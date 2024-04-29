@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Table, Input, Button, Modal, Form, InputNumber } from "antd";
+import { Table, Input, Button, Modal, Form } from "antd";
+import { Link } from "react-router-dom";
 import axios from "axios";
-  const ProductPage=({isOpen})=>{
+const ProductPage = ({ isOpen }) => {
   const [products, setProducts] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -15,19 +16,23 @@ import axios from "axios";
   const handleSearch = (value) => {
     setSearchText(value);
   };
-  const handleAddProduct=()=>{
+  const handleAddProduct = () => {
     setEditProduct(null);
     setShowForm(true);
-  }
+  };
   const handleEdit = (record) => {
     setEditProduct(record);
     setShowForm(true);
   };
-  const handleDelete=(record)=>{
-    setProducts(products.filter((product)=>product.id!==record.id));
+  const handleDelete = (record) => {
+    setProducts(products.filter((product) => product.id !== record.id));
   };
   const handleSubmit = (values) => {
     if (editProduct) {
+      axios
+        .put(`https://fakestoreapi.com/products/${values.id}`, values)
+        .then((response) => console.log(response.data))
+        .catch((error) => console.error("Error:", error));
       const updatedProducts = products.map((product) =>
         product.id === editProduct.id ? { ...product, ...values } : product
       );
@@ -46,7 +51,9 @@ import axios from "axios";
       title: "Name",
       dataIndex: "title",
       key: "title",
-      render: (text, record) => <a href={`/products/${record.id}`}>{text}</a>,
+      render: (text, record) => (
+        <Link to={`/products/${record.id}`}>{text}</Link>
+      ),
       width: 500,
     },
     {
@@ -79,9 +86,9 @@ import axios from "axios";
   ];
   return (
     <div className={`flex ${isOpen ? "ml-64 w-4/5" : "w-full"}`}>
-      <div className="bg-gray-100 w-full min-h-screen">
+      <div className="bg-gray-100 w-full">
         <h1 className="text-2xl font-bold mb-4 p-4">Product Page</h1>
-          <div className="flex justify-center mb-4 p-4">
+        <div className="flex justify-center mb-4 p-4">
           <Input.Search
             placeholder="Search products"
             onChange={(e) => handleSearch(e.target.value)}
@@ -136,7 +143,7 @@ const ProductForm = ({ product, onSubmit, onCancel }) => {
   return (
     <Form form={form} onFinish={handleFinish} layout="vertical">
       <Form.Item label="ID" name="id" hidden>
-        <InputNumber />
+        <Input />
       </Form.Item>
       <Form.Item
         label="Name"
@@ -159,7 +166,7 @@ const ProductForm = ({ product, onSubmit, onCancel }) => {
         name="price"
         rules={[{ required: true, message: "Please enter the product price" }]}
       >
-        <InputNumber min={0} precision={2} />
+        <Input />
       </Form.Item>
       <Form.Item
         label="Description"
@@ -168,7 +175,7 @@ const ProductForm = ({ product, onSubmit, onCancel }) => {
           { required: true, message: "Please enter the product description" },
         ]}
       >
-        <Input.TextArea rows={4} />
+        <Input />
       </Form.Item>
       <Form.Item
         label="Image URL"
@@ -178,24 +185,6 @@ const ProductForm = ({ product, onSubmit, onCancel }) => {
         ]}
       >
         <Input />
-      </Form.Item>
-      <Form.Item
-        label="Rating Rate"
-        name={["rating", "rate"]}
-        rules={[
-          { required: true, message: "Please enter the product rating rate" },
-        ]}
-      >
-        <InputNumber min={0} max={5} precision={1} />
-      </Form.Item>
-      <Form.Item
-        label="Rating Count"
-        name={["rating", "count"]}
-        rules={[
-          { required: true, message: "Please enter the product rating count" },
-        ]}
-      >
-        <InputNumber min={0} />
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">

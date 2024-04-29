@@ -1,21 +1,19 @@
-import React,{useEffect,useRef,useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
-    const LineGraph=({isOpen})=>{
+import { FiBarChart2 } from "react-icons/fi";
+const LineGraph = ({ isOpen }) => {
   const lineChartRef = useRef(null);
   const doughnutChartRef = useRef(null);
-  const [lineGraphWidth, setLineGraphWidth] = useState("w-full");
+  const [lineGraphClass, setLineGraphClass] = useState("w-full");
   useEffect(() => {
     let lineChart;
     let doughnutChart;
     if (isOpen) {
-      setLineGraphWidth("w-4/5 ml-64");
+      setLineGraphClass("w-4/5 ml-64");
     } else {
-      setLineGraphWidth("w-full");
+      setLineGraphClass("w-full");
     }
-    if (lineChartRef && lineChartRef.current) {
-      if (lineChart) {
-        lineChart.destroy();
-      }
+    if (lineChartRef.current) {
       lineChart = new Chart(lineChartRef.current, {
         type: "line",
         data: {
@@ -53,10 +51,7 @@ import Chart from "chart.js/auto";
         },
       });
     }
-    if (doughnutChartRef && doughnutChartRef.current) {
-      if (doughnutChart) {
-        doughnutChart.destroy();
-      }
+    if (doughnutChartRef.current) {
       doughnutChart = new Chart(doughnutChartRef.current, {
         type: "doughnut",
         data: {
@@ -86,20 +81,28 @@ import Chart from "chart.js/auto";
     };
   }, [isOpen]);
   return (
-    <div className={`flex sm:flex-col md:flex-row xxs:flex-col justify-end mt-6 sm:mt-8 ${lineGraphWidth}`}>
+    <div
+      className={`flex flex-wrap justify-center mt-6 sm:mt-8 ${lineGraphClass}`}
+    >
       <div className="w-full md:w-1/2 lg:w-1/2 px-2 mb-4">
-        <div className="bg-white p-4 rounded-lg shadow-lg h-full">
-          <h2 className="text-lg font-semibold mb-2 text-gray-900">
-            Line Graph
-          </h2>
+        <div className="bg-white p-4 rounded-lg shadow-lg">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold mb-2 text-gray-900">
+              Line Graph
+            </h2>
+            <FiBarChart2 className="h-6 w-6 text-blue-500" />
+          </div>
           <canvas className="w-full h-64 md:h-80 lg:h-96" ref={lineChartRef} />
         </div>
       </div>
       <div className="w-full md:w-1/2 lg:w-1/2 px-2 mb-4">
-        <div className="bg-white p-4 rounded-lg shadow-lg h-full">
-          <h2 className="text-lg font-semibold mb-2 text-gray-900">
-            Doughnut Graph
-          </h2>
+        <div className="bg-white p-4 rounded-lg shadow-lg">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold mb-2 text-gray-900">
+              Doughnut Graph
+            </h2>
+            <FiBarChart2 className="h-6 w-6 text-blue-500" />
+          </div>
           <canvas
             className="w-full h-64 md:h-80 lg:h-96"
             ref={doughnutChartRef}

@@ -54,7 +54,7 @@ function RegisterPage() {
               name="username"
               type="text"
               required
-              className="input-style"
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-200"
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
@@ -72,7 +72,7 @@ function RegisterPage() {
               name="email"
               type="email"
               required
-              className="input-style"
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-200"
               placeholder="Email address"
               value={formData.email}
               onChange={handleChange}
@@ -90,7 +90,7 @@ function RegisterPage() {
               name="password"
               type="password"
               required
-              className="input-style"
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-200"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
@@ -108,14 +108,17 @@ function RegisterPage() {
               name="age"
               type="number"
               required
-              className="input-style"
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-200"
               placeholder="Age"
               value={formData.age}
               onChange={handleChange}
             />
           </div>
           <div className="mt-6">
-            <button type="submit" className="btn-style">
+            <button
+              type="submit"
+              className="w-full mt-6 py-2 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
               Register
             </button>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FiLock } from "react-icons/fi";
 function LoginPage({ onSignIn }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,11 +79,24 @@ function LoginPage({ onSignIn }) {
           </div>
           <button
             type="submit"
-            className="w-full mt-6 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full mt-6 py-2 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Sign in
           </button>
         </form>
+        <div className="text-center mt-4">
+          <p className="text-sm font-medium text-gray-600">
+            Or continue with social media
+          </p>
+          <div className="flex justify-center mt-2">
+            <button className="mr-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full">
+              Facebook
+            </button>
+            <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full">
+              Google
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
